@@ -1,0 +1,112 @@
+.card {
+  background: linear-gradient(
+    180deg, 
+    rgba(26, 55, 77, 0.4) 0%, 
+    rgba(64, 104, 130, 0.7) 100%
+  ) !important;
+  
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 16px;
+  
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(125, 207, 255, 0.2) !important;
+  background: linear-gradient(
+    180deg, 
+    rgba(26, 55, 77, 0.5) 0%, 
+    rgba(64, 104, 130, 0.8) 100%
+  ) !important;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(125, 207, 255, 0.3) !important;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 8px;
+}
+
+.title {
+  color: #7DCFFF; 
+  margin: 0;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.refreshBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(125, 207, 255, 0.4); 
+  color: #7DCFFF;
+  padding: 4px 14px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refreshBtn:hover:not(:disabled) {
+  background: #7DCFFF;
+  color: #12141D;
+  box-shadow: 0 0 15px rgba(125, 207, 255, 0.4);
+}
+
+.refreshBtn:disabled {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+}
+
+.content {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #E2E8F0; 
+  line-height: 1.6;
+}
+
+.markdownBody h2 {
+  font-size: 1.05rem;
+  color: #7DCFFF; 
+  margin-top: 12px;
+  border-bottom: 1px solid rgba(125, 207, 255, 0.2);
+  padding-bottom: 4px;
+  font-weight: 700;
+}
+
+.markdownBody p {
+  margin-bottom: 10px;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid #7DCFFF; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

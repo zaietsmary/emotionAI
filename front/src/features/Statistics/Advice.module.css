@@ -1,0 +1,85 @@
+.card {
+  background: radial-gradient(
+    circle at top left, 
+    rgba(64, 104, 130, 0.6) 0%, 
+    rgba(26, 55, 77, 0.9) 100%
+  ) !important;
+
+  padding: 15px 20px; 
+  margin-top: 0 !important; 
+  display: flex;
+  flex-direction: column;
+  border: none !important;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
+}
+
+.header h6 {
+  margin: 0;
+  font-size: 1rem;
+  color: #FFFFFF;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header button {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  
+  padding: 5px 14px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(4px);
+  outline: none !important;
+}
+
+.header button:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.header button:active {
+  transform: translateY(0);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.header button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(125, 207, 255, 0.2); 
+}
+
+.content {
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  line-height: 1.5;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.markdownBody strong {
+  color: #FFFFFF;
+  text-decoration: underline; 
+  font-weight: 800;
+}

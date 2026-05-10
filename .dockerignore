@@ -1,0 +1,7 @@
+.appvenv
+.venv
+venv
+__pycache__
+.git
+dataset/
+logs/

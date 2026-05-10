@@ -1,0 +1,100 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 2.5rem;
+  
+  background-color: rgba(18, 20, 29, 0.8); 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  flex-shrink: 0;
+  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0.5rem 1rem; 
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .nav { gap: 15px; }
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+}
+
+.icon {
+  font-size: 1.5rem; 
+  filter: drop-shadow(0 0 8px rgba(125, 207, 255, 0.6));
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem; 
+  color: #7DCFFF; 
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-weight: 300;
+  color: #8892B0; 
+  margin-left: 4px;
+  font-size: 0.9rem; 
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.03); 
+  padding: 5px 14px; 
+  border-radius: 20px;
+  border: 1px solid rgba(125, 207, 255, 0.2);
+  font-size: 0.75rem; 
+  color: #FFFFFF; 
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.active {
+  background-color: #9ECE6A;
+  box-shadow: 0 0 10px #9ECE6A;
+  animation: pulse 2s infinite;
+}
+
+.inactive {
+  background-color: #565f89;
+  box-shadow: none;
+  animation: none;
+}
+
+.userName {
+  font-size: 0.8rem; 
+  color: #A9B1D6; 
+  font-weight: 500;
+}

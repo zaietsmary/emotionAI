@@ -1,0 +1,149 @@
+.container {
+  background: rgba(255, 255, 255, 0.02); 
+  border: none !important; /* Гарантовано прибираємо рамку */
+  outline: none !important;
+  border-radius: 16px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  min-height: 80px;
+  transition: all 0.3s ease;
+  width: 100%;
+  isolation: isolate; 
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.placeholder, .activeRecording {
+  display: flex;
+  align-items: center;
+  gap: 16px; 
+  width: 100%;
+}
+
+.roundStartButton, .roundStopButton {
+  /* ... твої стилі ... */
+  
+  /* МАГІЯ ТУТ: Попереджаємо браузер і фіксуємо субпікселі */
+  will-change: transform;
+  transform: translateZ(0); 
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* --- КРУГЛА КНОПКА СТАРТ --- */
+.roundStartButton {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #7DCFFF;
+  border: none !important;
+  outline: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(125, 207, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.roundStartButton:hover {
+  background: #93d7ff;
+  box-shadow: 0 0 25px rgba(125, 207, 255, 0.6), 
+              inset 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.roundStopButton {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #F7768E;
+  border: none !important;
+  outline: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(247, 118, 142, 0.3);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  position: relative;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.roundStopButton:hover {
+  box-shadow: 0 0 25px rgba(247, 118, 142, 0.6), 
+              inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.statusText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statusText p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #E2E8F0;
+  letter-spacing: 0.5px;
+}
+
+.statusText small {
+  color: #8892B0;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.recordingText {
+  color: #F7768E !important;
+  animation: pulseText 1.5s infinite;
+}
+
+.pulseRing {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(247, 118, 142, 0.5);
+  border-radius: 50%;
+  z-index: -1;
+  animation: roundPulse 1.5s infinite;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+@keyframes roundPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes pulseText {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.loadingOverlay {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  outline: none !important;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(125, 207, 255, 0.1);
+  border-left-color: #7DCFFF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  box-shadow: none !important; 
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

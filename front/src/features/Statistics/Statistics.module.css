@@ -1,0 +1,198 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+.actionsBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.dateSelectorContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 8px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(125, 207, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.dateSelectorContainer:hover {
+  border-color: rgba(125, 207, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dateLabel {
+  font-size: 13px;
+  color: #7DCFFF;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+.datePicker {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Manrope', sans-serif;
+  color-scheme: dark;
+}
+
+.datePicker::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(170deg);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.datePicker::-webkit-calendar-picker-indicator:hover {
+  transform: scale(1.1);
+  filter: invert(1) sepia(100%) saturate(1000%) hue-rotate(180deg);
+}
+
+.downloadBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px;
+  background-color: rgba(125, 207, 255, 0.08);
+  color: #7DCFFF;
+  border: 1px solid rgba(125, 207, 255, 0.2);
+  border-radius: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 11px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.downloadBtn:hover:not(:disabled) {
+  background-color: rgba(125, 207, 255, 0.2);
+  border-color: #7DCFFF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(125, 207, 255, 0.2);
+}
+
+.downloadBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.downloadBtn:disabled {
+  opacity: 0.15;
+  cursor: not-allowed;
+  border: 1px dashed rgba(125, 207, 255, 0.1);
+  background-color: transparent;
+}
+
+.downloadBtn svg polygon,
+.downloadBtn svg rect {
+  fill: #7DCFFF !important;
+  transition: fill 0.3s ease;
+}
+
+.downloadBtn:hover:not(:disabled) svg polygon,
+.downloadBtn:hover:not(:disabled) svg rect {
+  fill: #FFFFFF !important;
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 25px;
+  width: 100%;
+  flex: 1;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(125, 207, 255, 0.1) !important;
+  box-shadow: 0 15px 40px rgba(125, 207, 255, 0.1) !important;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+  min-height: 400px;
+}
+
+.title {
+  color: #7DCFFF; 
+  font-weight: 800;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(125, 207, 255, 0.3);
+}
+
+.chartWrapper {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noData, .loadingText, .emptyState {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #8892B0;
+  font-style: italic;
+  gap: 15px;
+}
+
+.spinner {
+  width: 35px;
+  height: 35px;
+  border: 3px solid rgba(125, 207, 255, 0.1);
+  border-top: 3px solid #7DCFFF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 1100px) {
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+}

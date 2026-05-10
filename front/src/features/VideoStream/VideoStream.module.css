@@ -1,0 +1,215 @@
+.container {
+  width: 100%;
+  aspect-ratio: 16 / 10; 
+  min-height: 350px;
+  background-color: #0F111A; 
+  border-radius: 16px; 
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.6); 
+  
+  background-color: #0F111A; 
+  transition: box-shadow 0.5s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 0px;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.3) contrast(1.4) brightness(0.6) sepia(8%);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container:has(.loadingOverlay) {
+  box-shadow: none;
+}
+
+.container:hover .video {
+  filter: saturate(0.4) contrast(1.5) brightness(0.7);
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  background-image: 
+    radial-gradient(circle, rgba(125, 207, 255, 0.1) 0.5px, transparent 0.5px),
+    radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0.9) 100%);
+  background-size: 8px 8px, 100% 100%;
+  
+  mix-blend-mode: screen; 
+  pointer-events: none;
+  z-index: 2;
+  animation: pulseGrid 6s ease-in-out infinite;
+}
+
+@keyframes pulseGrid {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.5; }
+}
+
+.container:not(:has(.video))::before {
+  opacity: 0;
+  animation: none;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(125, 207, 255, 0.5), transparent);
+  box-shadow: 0 0 10px rgba(125, 207, 255, 0.3);
+  animation: scan 5s linear infinite;
+  pointer-events: none;
+  z-index: 4;
+  display: none;
+}
+
+.container:has(.video)::after {
+  display: block;
+}
+
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.placeholder {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px; 
+  z-index: 5;
+}
+
+.placeholder svg {
+  color: #7DCFFF;
+  filter: drop-shadow(0 0 10px rgba(125, 207, 255, 0.3));
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.placeholder h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #E2E8F0 !important; 
+  text-transform: none;     
+  letter-spacing: 0.5px;
+}
+
+.placeholder p {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #8892B0 !important; 
+  text-transform: none;     
+  letter-spacing: normal; 
+  opacity: 1;
+}
+
+.container:hover .placeholder svg {
+  filter: drop-shadow(0 0 15px rgba(125, 207, 255, 0.6));
+  transform: scale(1.02);
+}
+
+.placeholder svg {
+  color: #7DCFFF;
+  filter: drop-shadow(0 0 10px rgba(125, 207, 255, 0.3));
+  margin-bottom: 10px;
+}
+
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0F111A; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 16px; 
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(125, 207, 255, 0.1);
+  border-left-color: #7DCFFF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.videoContainerWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.btnMain {
+  width: 100%; 
+  padding: 14px 24px;
+  font-size: 13px;
+  font-weight: 800;
+  border-radius: 12px; 
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 16px;
+
+  outline: none !important; 
+  border: none !important;  
+  box-shadow: none;         
+  -webkit-tap-highlight-color: transparent; 
+}
+
+.btnStart {
+  background-color: #7DCFFF;
+  color: #12141D;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(125, 207, 255, 0.2);
+}
+
+.btnStart:hover {
+  background-color: #93d7ff;
+  box-shadow: 0 0 20px rgba(125, 207, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.btnStop {
+  background-color: rgba(247, 118, 142, 0.05);
+  color: #F7768E;
+  border: 1px solid rgba(247, 118, 142, 0.2);
+}
+
+.btnStop:hover {
+  background-color: #F7768E;
+  color: #12141D;
+  transform: translateY(-2px);
+}
